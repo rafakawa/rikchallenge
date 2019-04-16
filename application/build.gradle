@@ -1,0 +1,10 @@
+apply plugin: 'application'
+
+mainClassName = "br.com.rik.rikchallenge.Boot"
+
+dependencies {
+    compile project(":usecases")
+    compile project(":mysqlrepository")
+    compile project(":entities")
+    compile project(":restapi")
+}

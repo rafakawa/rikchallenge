@@ -1,0 +1,3 @@
+rootProject.name = 'rikchallenge'
+
+include 'application', 'usecases', 'entities', 'mysqlrepository', 'restapi'

@@ -1,0 +1,10 @@
+dependencies {
+    compile group: 'ro.pippo', name: 'pippo-core', version: '1.2.0'
+    compile group: 'ro.pippo', name: 'pippo-controller', version: '1.2.0'
+    compile group: 'ro.pippo', name: 'pippo-jetty', version: '1.2.0'
+    compile group: 'ro.pippo', name: 'pippo-gson', version: '1.2.0'
+
+    compile project(":usecases")
+    compile project(":mysqlrepository")
+    compile project(":entities")
+}

@@ -1,0 +1,3 @@
+dependencies {
+    compile 'br.com.moip:credit-card-validator:0.0.6'
+}

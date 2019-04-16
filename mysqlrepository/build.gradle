@@ -1,0 +1,16 @@
+ext.jdbi_version = '3.0.1'
+
+dependencies {
+    compile project(":usecases")
+    compile project(":entities")
+
+    compile 'com.zaxxer:HikariCP:2.7.3'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.44'
+
+    compile "org.jdbi:jdbi3-core:${jdbi_version}"
+    compile "org.jdbi:jdbi3-sqlobject:${jdbi_version}"
+    compile "org.jdbi:jdbi3-kotlin-sqlobject:${jdbi_version}"
+
+    testCompile 'com.h2database:h2:1.4.192'
+}
