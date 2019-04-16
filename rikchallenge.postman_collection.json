@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "de6ed46a-cc99-49bc-9181-c5aaa72509ac",
+		"name": "rikchallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProcessOrderBoleto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client\": {\n\t\t\"id\": \"client1\"\n\t},\n\t\"buyer\": {\n\t\t\"name\": \"name1\",\n\t\t\"eMail\": \"e2@mail.com\",\n\t\t\"cpf\": \"12344567890\"\n\t},\n\t\"payment\" : {\n\t\t\"amount\": 200.3,\n\t\t\"type\": \"BOLETO\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/order/process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProcessOrderCreditCard",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client\": {\n\t\t\"id\": \"client1\"\n\t},\n\t\"buyer\": {\n\t\t\"name\": \"name1\",\n\t\t\"eMail\": \"e@mail.com\",\n\t\t\"cpf\": \"12344567890\"\n\t},\n\t\"payment\" : {\n\t\t\"amount\": 200.3,\n\t\t\"type\": \"CREDIT_CARD\",\n\t\t\"card\" : {\n\t\t\t\"holderName\": \"My Name\",\n\t\t\t\"number\": \"5555666677778884\",\n\t\t\t\"expirationDate\": \"09/2029\",\n\t\t\t\"cvv\": \"111\"\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/order/process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Validate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"holderName\": \"My Name\",\n\t\"number\": \"123123\",\n\t\"expirationDate\": \"09/2029\",\n\t\"cvv\": \"111\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8181/card/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"card",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProcessOrderInvalidCreditCard",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client\": {\n\t\t\"id\": \"client1\"\n\t},\n\t\"buyer\": {\n\t\t\"name\": \"name1\",\n\t\t\"eMail\": \"e@mail.com\",\n\t\t\"cpf\": \"12344567890\"\n\t},\n\t\"payment\" : {\n\t\t\"amount\": 200.3,\n\t\t\"type\": \"CREDIT_CARD\",\n\t\t\"card\" : {\n\t\t\t\"holderName\": \"My Name\",\n\t\t\t\"number\": \"9555666677778881\",\n\t\t\t\"expirationDate\": \"09/2029\",\n\t\t\t\"cvv\": \"111\"\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/order/process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
