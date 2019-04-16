@@ -203,6 +203,49 @@ Para criar a imagem. E:
 docker run --name rikchallenge1 --link 'dockerhost' -p 8181:8181 -dit rikchallenge 
 ```
 Para criar o container e rodar. 
+
+### Testes
+
+O serviço estará rodando no endereço: http://localhost:8181.
+
+Para testar, importe o arquivo rikchallenge.postman_collection.json no postman.
+
+Exemplo de teste do boleto:
+
+Url: http://localhost:8181/order/process  
+Método: Post  
+Headers: [Content-Type, application/json]  
+Body:
+```
+{
+	"client": {
+		"id": "client1"
+	},
+	"buyer": {
+		"name": "name1",
+		"eMail": "e2@mail.com",
+		"cpf": "12344567890"
+	},
+	"payment" : {
+		"amount": 200.3,
+		"type": "BOLETO"
+	}
+}
+```
+
+Resposta:
+```
+{
+    "processOrderId": "5ad30c70-af4e-4b4c-a2df-6036a6d96991",
+    "status": "SUCCESS",
+    "payloadType": "BOLETO_NUMBER",
+    "payload": "02734004867782157111"
+}
+```
+
+Nota: Pelo payloadType, eu sei que o que foi gerado é o número de boleto, e o payload em si é o número do boleto.
+
+
 ### Dúvidas
 
 Por favor, se virem que está faltando algo, ou se ficaram em dúvida com alguma implementação, framework, etc, me procurem!!
